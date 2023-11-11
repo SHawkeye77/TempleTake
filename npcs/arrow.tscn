@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://p32v360xncoq"]
+
+[ext_resource type="Script" path="res://npcs/arrow.gd" id="1_8ncsn"]
+[ext_resource type="Texture2D" uid="uid://dpguh0uq0qo85" path="res://art/arrow.png" id="2_dk4c1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eec8k"]
+size = Vector2(14, 6)
+
+[node name="Arrow" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_8ncsn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dk4c1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_eec8k")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://idou511dgvi1"]
+
+[ext_resource type="Texture2D" uid="uid://ctvupso0sdhvs" path="res://art/person.png" id="1_c12wv"]
+[ext_resource type="Script" path="res://player.gd" id="1_trqio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5lf6"]
+size = Vector2(14, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3juhq"]
+radius = 19.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_trqio")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c12wv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j5lf6")
+
+[node name="PlayerMovementDelay" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_3juhq")
+
+[connection signal="timeout" from="PlayerMovementDelay" to="." method="_on_player_movement_delay_timeout"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]

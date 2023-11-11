@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xkqv3pgdnxln"]
+
+[ext_resource type="Texture2D" uid="uid://yt4ci4oreu04" path="res://art/gem.png" id="1_0o365"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf35n"]
+size = Vector2(6, 8)
+
+[node name="Gem" type="CharacterBody2D" groups=["gem"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0o365")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pf35n")

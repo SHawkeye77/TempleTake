@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cni8uosce24w5"]
+
+[ext_resource type="Texture2D" uid="uid://bugyfryfjc8vr" path="res://art/alligator.png" id="1_ctpqs"]
+[ext_resource type="Script" path="res://npcs/alligator.gd" id="1_k0xvp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu7je"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nusc3"]
+size = Vector2(16, 16)
+
+[node name="Alligator" type="CharacterBody2D" groups=["movingPlatform"]]
+script = ExtResource("1_k0xvp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ctpqs")
+
+[node name="LeftArea" type="Area2D" parent="." groups=["leftArea"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_xu7je")
+
+[node name="RightArea" type="Area2D" parent="." groups=["rightArea"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_nusc3")

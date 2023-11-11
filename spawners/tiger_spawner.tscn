@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnftbcsf7afjt"]
+
+[ext_resource type="Script" path="res://spawners/tiger_spawner.gd" id="1_t3vca"]
+
+[node name="TigerSpawner" type="Node2D"]
+script = ExtResource("1_t3vca")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
